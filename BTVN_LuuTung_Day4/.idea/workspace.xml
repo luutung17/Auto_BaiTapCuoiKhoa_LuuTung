@@ -1,4 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2467b9dd-7f03-4671-956c-07f4969dc68f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Auto_Day4/src/test/java/action/LoginAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Auto_Day4/src/test/java/feature/ActionLoginPageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Auto_Day4/src/test/java/feature/LoginPageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Auto_Day4/src/test/java/utils/ExcelUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BTVN_LuuTung_Day2/src/main/java/org/example/KhongNhapCompany.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BTVN_LuuTung_Day2/src/main/java/org/example/KhongNhapEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BTVN_LuuTung_Day2/src/main/java/org/example/KhongNhapFirstName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BTVN_LuuTung_Day2/src/main/java/org/example/NhapKhongPhaiLaBusinessEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BaiTapCuoiKhoa_Auto/src/test/java/action/LoginAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BaiTapCuoiKhoa_Auto/src/test/java/feature/ActionLoginPageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BaiTapCuoiKhoa_Auto/src/test/java/feature/LoginPageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BaiTapCuoiKhoa_Auto/src/test/java/feature/ReadToFileExcel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BaiTapCuoiKhoa_Auto/src/test/java/utils/ExcelUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java95_LuuTung_BTCuoiKhoa/Java95_LuuTung_BTCuoiKhoa.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java95_LuuTung_BTCuoiKhoa/src/HocVien.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Java95_LuuTung_BTCuoiKhoa/src/KhoaHoc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Auto_Day1/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Auto_Day1/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Auto_LuuTung_Day1.7z" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Auto_LuuTung_Day1/Auto_LuuTung_Day1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day4_Bai1/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day4_Bai1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day4_Bai1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day4_Bai1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day4_Bai1/Java95_LuuTung_Day4_Bai1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day4_Bai1/src/HocSinh.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day4_Bai1/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day4_Bai2/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day4_Bai2/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day4_Bai2/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day4_Bai2/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day4_Bai2/Java95_LuuTung_Day4.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day4_Bai2/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day6.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day6/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day6/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day6/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day6/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day6/Java95_LuuTung_Day6.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day6/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day6/src/MatHang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Java95_LuuTung_Day6/src/PhieuMuaHang.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="3CiCFs3dNPMu5DMl6zyLTMmR8S2" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.NguoiDungNhapBieuMauThanhCongTest.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/NC/IdeaProjects/BTVN_LuuTung_Day4/src/test/java&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/NC/IdeaProjects/BTVN_LuuTung_Day4/src/main/java/org/example/Main.java&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="utils" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\NC\IdeaProjects\BTVN_LuuTung_Day4\src\test\java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="action" />
+      <recent name="feature" />
+      <recent name="" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2467b9dd-7f03-4671-956c-07f4969dc68f" name="Changes" comment="" />
+      <created>1776858904744</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1776858904744</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
 </project>

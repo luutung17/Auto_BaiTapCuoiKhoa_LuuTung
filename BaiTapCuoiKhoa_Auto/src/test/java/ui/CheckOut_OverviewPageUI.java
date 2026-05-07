@@ -2,7 +2,7 @@ package ui;
 
 import org.openqa.selenium.By;
 
-public class CheckOutPageUI {
+public class CheckOut_OverviewPageUI {
 
     // ===== STEP 1: YOUR INFORMATION =====
     public static final By FIRST_NAME =
@@ -23,9 +23,6 @@ public class CheckOutPageUI {
     public static final By ERROR_MESSAGE =
             By.cssSelector("[data-test='error']");
 
-    // ===== STEP 2 =====
-    public static final By FINISH_BTN =
-            By.id("finish");
 
     // ===== COMMON =====
     public static final By CART_PAGE =
@@ -33,4 +30,20 @@ public class CheckOutPageUI {
 
     public static final By CHECKOUT_STEP_TWO =
             By.cssSelector(".checkout_summary_container");
+    public static final By OVERVIEW_PRODUCT_NAME =
+            By.className("inventory_item_name");
+
+    public static final By ITEM_TOTAL =
+            By.className("summary_subtotal_label");
+
+    public static final By TOTAL_PRICE =
+            By.className("summary_total_label");
+
+    public static final By FINISH_BTN =
+            By.id("finish");
+
+    // ===== COMPLETE =====
+    public static final By COMPLETE_MESSAGE =
+            By.className("complete-header");
+
 }

@@ -4,9 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class NhapLastName {
-    public static void getElement(WebDriver driver, String username, String password) {
-        WebElement elementEmail = driver.findElement(By.id("Email"));
+public class NhapCompany {
+    public static void getElement(WebDriver driver, String company) {
+        WebElement elementCompany = driver.findElement(By.xpath("//input[@id=\"Company\"]"));
+        elementCompany.sendKeys(company);
 
 
     }

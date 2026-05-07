@@ -1,70 +1,121 @@
 package feature;
 
-import action.AddToCart;
-import action.CheckOut_TestProduct;
-import action.LoginAction;
-import action.WaitElement;
+import action.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
+import ui.CheckOutPage_YourInforMationUI;
+import untils.Hook_Inventory;
 
-import java.util.List;
-
-public class CheckOut_OverView {
-    WebDriver driver;
-
-    @BeforeClass //mtw1 lần
-    public void beforeClass() {
-        System.out.println("=== @BeforeClass: Khởi tạo Driver - Chạy trước các method trong class này ===");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
-
-    @BeforeMethod
-    public void beforeMethod() {
-        System.out.println("=== @BeforeMethod: Mở trang web - Chạy trước mỗi test case (@Test) ===");
-        driver.get("https://www.saucedemo.com/");
-        LoginAction.performLogin(driver, "standard_user", "secret_sauce");
-    }
-
-
+public class CheckOut_YourInformation extends Hook_Inventory {
 
     @Test
-    public void test() {
+    public void testCheckoutInfo_ValidData() {
 
-        System.out.println("--- Test Continue Shopping ---");
+        System.out.println("--- Test Checkout với dữ liệu hợp lệ ---");
 
+        goToCheckOutPage.goToPage(driver);
 
-        AddToCart.Click(driver, "[name='add-to-cart-sauce-labs-backpack']");
-        CheckOut_TestProduct.Click(driver);
+        driver.findElement(CheckOutPage_YourInforMationUI.FIRST_NAME).sendKeys("Tung");
+        driver.findElement(CheckOutPage_YourInforMationUI.LAST_NAME).sendKeys("Luu");
+        driver.findElement(CheckOutPage_YourInforMationUI.POSTAL_CODE).sendKeys("100000");
 
-        WaitElement.Wait(driver, "#continue-shopping");
+        driver.findElement(CheckOutPage_YourInforMationUI.CONTINUE_BTN).click();
 
+        WaitElement.Wait(driver, CheckOutPage_YourInforMationUI.CHECKOUT_STEP_TWO);
 
-        driver.findElement(By.id("continue-shopping")).click();
-
-
-        WaitElement.Wait(driver, ".inventory_list");
-
-        org.testng.Assert.assertTrue(driver.getCurrentUrl().contains("inventory"),
-                "Did not navigate back to inventory page!");
+        org.testng.Assert.assertTrue(
+                driver.getCurrentUrl().contains("checkout-step-two"),
+                "Did not go to step 2!"
+        );
     }
 
+    @Test
+    public void testCheckout_MissingFirstName() {
 
+        System.out.println("--- Test thiếu First Name ---");
 
+        goToCheckOutPage.goToPage(driver);
 
-    @AfterClass
-    public void afterClass() {
-        System.out.println("=== @AfterClass: Đóng Driver - Chạy sau tất cả các method trong class này ===");
-        if (driver != null) {
-            driver.quit();
-        }
+        driver.findElement(CheckOutPage_YourInforMationUI.LAST_NAME).sendKeys("Luu");
+        driver.findElement(CheckOutPage_YourInforMationUI.POSTAL_CODE).sendKeys("100000");
+
+        driver.findElement(CheckOutPage_YourInforMationUI.CONTINUE_BTN).click();
+        WebElement error = driver.findElement(CheckOutPage_YourInforMationUI.ERROR_MESSAGE);
+
+        org.testng.Assert.assertTrue(
+                error.getText().contains("First Name is required")
+        );
+    }
+    @Test
+    public void testCheckout_MissingLastName() {
+
+        System.out.println("--- Test thiếu Last Name ---");
+
+        goToCheckOutPage.goToPage(driver);
+
+        driver.findElement(CheckOutPage_YourInforMationUI.FIRST_NAME).sendKeys("Tung");
+        driver.findElement(CheckOutPage_YourInforMationUI.POSTAL_CODE).sendKeys("100000");
+
+        driver.findElement(CheckOutPage_YourInforMationUI.CONTINUE_BTN).click();
+
+        WebElement error = driver.findElement(CheckOutPage_YourInforMationUI.ERROR_MESSAGE);
+
+        org.testng.Assert.assertTrue(
+                error.getText().contains("Last Name is required")
+        );
+    }
+    @Test
+    public void testCheckout_MissingPostalCode() {
+
+        System.out.println("--- Test thiếu Postal Code ---");
+
+        goToCheckOutPage.goToPage(driver);
+
+        driver.findElement(CheckOutPage_YourInforMationUI.FIRST_NAME).sendKeys("Tung");
+        driver.findElement(CheckOutPage_YourInforMationUI.LAST_NAME).sendKeys("Luu");
+
+        driver.findElement(CheckOutPage_YourInforMationUI.CONTINUE_BTN).click();
+
+        WebElement error = driver.findElement(CheckOutPage_YourInforMationUI.ERROR_MESSAGE);
+
+        org.testng.Assert.assertTrue(
+                error.getText().contains("Postal Code is required")
+        );
+    }
+    @Test
+    public void testCheckout_AllFieldsEmpty() {
+
+        System.out.println("--- Test bỏ trống tất cả ---");
+
+        goToCheckOutPage.goToPage(driver);
+
+        driver.findElement(CheckOutPage_YourInforMationUI.CONTINUE_BTN).click();
+
+        WebElement error = driver.findElement(CheckOutPage_YourInforMationUI.ERROR_MESSAGE);
+
+        org.testng.Assert.assertTrue(
+                error.getText().contains("First Name is required")
+        );
+    }
+    @Test
+    public void testCheckout_CancelButton() {
+
+        System.out.println("--- Test nút Cancel ---");
+
+        goToCheckOutPage.goToPage(driver);
+
+        driver.findElement(CheckOutPage_YourInforMationUI.CANCEL_BTN).click();
+
+        WaitElement.Wait(driver, CheckOutPage_YourInforMationUI.CART_PAGE);
+
+        org.testng.Assert.assertTrue(
+                driver.getCurrentUrl().contains("cart"),
+                "Cancel không quay về cart!"
+        );
     }
 
-    @AfterSuite
-    public void afterSuite() {
-        System.out.println("=== @AfterSuite: Chạy cuối cùng, sau tất cả các test trong suite ===");
-    }
 }
+

@@ -1,9 +1,9 @@
-package utils;
+package feature;
 
 import action.LoginAction;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import utils.ExcelUtils;
+import untils.ExcelUtils;
 
 import java.util.List;
 import java.util.Map;

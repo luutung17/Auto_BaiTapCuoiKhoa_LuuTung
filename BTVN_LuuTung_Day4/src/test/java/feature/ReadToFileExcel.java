@@ -14,7 +14,7 @@ import java.io.IOException;
 public class ReadToFileExcel {
 
     public static void main(String[] args) {
-        try (FileInputStream file = new FileInputStream("dataLogin.xlsx");
+        try (FileInputStream file = new FileInputStream("dataGuiBieuMau.xlsx");
              Workbook workbook = new XSSFWorkbook(file)) {
 
             Sheet sheetDataLogin = workbook.getSheetAt(0);
@@ -25,13 +25,18 @@ public class ReadToFileExcel {
                 if (row.getRowNum() == 0) continue; // Bỏ qua hàng tiêu đề
 
                 // Lấy giá trị từ cột "user" (cột 0) và "pass" (cột 1)
-                String user = dataFormatter.formatCellValue(row.getCell(0)).trim();
-                String pass = dataFormatter.formatCellValue(row.getCell(1)).trim();
+                String email = dataFormatter.formatCellValue(row.getCell(0)).trim();
+                String FirstName = dataFormatter.formatCellValue(row.getCell(1)).trim();
+                String LastName = dataFormatter.formatCellValue(row.getCell(2)).trim();
+                String Company = dataFormatter.formatCellValue(row.getCell(3)).trim();
+                String Phone = dataFormatter.formatCellValue(row.getCell(4)).trim();
+                String Country = dataFormatter.formatCellValue(row.getCell(5)).trim();
+                String value = dataFormatter.formatCellValue(row.getCell(6)).trim();
+                String Comment = dataFormatter.formatCellValue(row.getCell(7)).trim();
 
                 // In ra chỉ khi cả "user" và "pass" không rỗng
-                if (!user.isEmpty() || !pass.isEmpty()) {
-                    System.out.println("User: " + user);
-                    System.out.println("Pass: " + pass);
+                if (!email.isEmpty() ) {
+                    System.out.println("User: " + email);
                 }
                 //
             }

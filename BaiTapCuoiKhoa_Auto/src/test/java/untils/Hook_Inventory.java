@@ -1,5 +1,6 @@
 package untils;
 
+import action.LoginAction;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -7,7 +8,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
-public class Hook {
+public class Hook_Inventory {
     protected WebDriver driver;
     @BeforeClass //mtw1 lần
     public void beforeClass() {
@@ -20,6 +21,7 @@ public class Hook {
     public void beforeMethod() {
         System.out.println("=== @BeforeMethod: Mở trang web - Chạy trước mỗi test case (@Test) ===");
         driver.get("https://www.saucedemo.com/");
+        LoginAction.performLogin(driver, "standard_user", "secret_sauce");
     }
     @AfterClass
     public void afterClass() {

@@ -6,50 +6,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
+import ui.LoginPageUI;
+import untils.Hook;
 
 
-public class LoginTestFullAnnotationsTest {
-    WebDriver driver;
-
-    @BeforeClass //mtw1 lần
-    public void beforeClass() {
-        System.out.println("=== @BeforeClass: Khởi tạo Driver - Chạy trước các method trong class này ===");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-    }
-
-    @BeforeMethod
-    public void beforeMethod() {
-        System.out.println("=== @BeforeMethod: Mở trang web - Chạy trước mỗi test case (@Test) ===");
-        driver.get("https://www.saucedemo.com/");
-    }
+public class LoginTest extends Hook {
 
     @Test
     public void testLoginValidUser() {
         System.out.println("--- @Test: Thực hiện test login với user hợp lệ ---");
-        WebElement userInp = driver.findElement(By.id("user-name"));
-        WebElement passInp = driver.findElement(By.id("password"));
-        WebElement loginBtn = driver.findElement(By.id("login-button"));
-
-        userInp.sendKeys("standard_user");
-        passInp.sendKeys("secret_sauce");
-        loginBtn.click();
+        LoginAction.performLogin(driver,"standard_user","secret_sauce");
         org.testng.Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html", "Login failed!");
     }
 
     @Test
     public void testLoginFailNotUser() {
         //Kiểm tra không có tên user
-
         System.out.println("--- @Test: Thực hiện test không có User ---");
-        WebElement userInp = driver.findElement(By.id("user-name"));
-        WebElement passInp = driver.findElement(By.id("password"));
-        WebElement loginBtn = driver.findElement(By.id("login-button"));
-
-        userInp.sendKeys("");
-        passInp.sendKeys("secret_sauce");
-        loginBtn.click();
-        WebElement errorMsg = driver.findElement(By.cssSelector("[data-test='error']"));
+        LoginAction.performLogin(driver, "", "secret_sauce");
+        WebElement errorMsg = driver.findElement(LoginPageUI.ERROR_FIELD);
         org.testng.Assert.assertTrue(errorMsg.isDisplayed(), "Error message not displayed!");
         org.testng.Assert.assertTrue(errorMsg.getText().contains("Epic sadface: Username is required"));
 
@@ -59,14 +34,9 @@ public class LoginTestFullAnnotationsTest {
     public void testLoginFailNotPassword() {
         //Kiểm tra không có mật kẩu
         System.out.println("--- @Test: Thực hiện test không có Password ---");
-        WebElement userInp = driver.findElement(By.id("user-name"));
-        WebElement passInp = driver.findElement(By.id("password"));
-        WebElement loginBtn = driver.findElement(By.id("login-button"));
+        LoginAction.performLogin(driver, "standard_user", "");
 
-        userInp.sendKeys("standard_user");
-        passInp.sendKeys("");
-        loginBtn.click();
-        WebElement errorMsg = driver.findElement(By.cssSelector("[data-test='error']"));
+        WebElement errorMsg = driver.findElement(LoginPageUI.ERROR_FIELD);
         org.testng.Assert.assertTrue(errorMsg.isDisplayed(), "Error message not displayed!");
         org.testng.Assert.assertTrue(errorMsg.getText().contains("Epic sadface: Password is required"));
 
@@ -74,31 +44,13 @@ public class LoginTestFullAnnotationsTest {
 
     @Test
     public void testLoginFailNotUserAndPassword() {
-        LoginAction.performLogin(driver, "", "");
         //Kiểm tra để trống tên v̀ mật khẩu
-        System.out.println("--- @Test: Thực hiện test không có User và Password---");
-        WebElement userInp = driver.findElement(By.id("user-name"));
-        WebElement passInp = driver.findElement(By.id("password"));
-        WebElement loginBtn = driver.findElement(By.id("login-button"));
-
-        userInp.sendKeys("");
-        passInp.sendKeys("");
-        loginBtn.click();
-        WebElement errorMsg = driver.findElement(By.cssSelector("[data-test='error']"));
+        System.out.println("--- @Test: Thực hiện test không có User ---");
+        LoginAction.performLogin(driver, "", "");
+        WebElement errorMsg = driver.findElement(LoginPageUI.ERROR_FIELD);
         org.testng.Assert.assertTrue(errorMsg.isDisplayed(), "Error message not displayed!");
         org.testng.Assert.assertTrue(errorMsg.getText().contains("Epic sadface: Username is required"));
     }
 
-    @AfterClass
-    public void afterClass() {
-        System.out.println("=== @AfterClass: Đóng Driver - Chạy sau tất cả các method trong class này ===");
-        if (driver != null) {
-            driver.quit();
-        }
-    }
 
-    @AfterSuite
-    public void afterSuite() {
-        System.out.println("=== @AfterSuite: Chạy cuối cùng, sau tất cả các test trong suite ===");
-    }
 }
